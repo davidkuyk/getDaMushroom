@@ -1,7 +1,7 @@
 {
-  "name": "secure-real-time-multiplayer-game",
+  "name": "get-da-mushroom",
   "version": "1.0.0",
-  "description": "Information Security 5: Secure Real-Time Multiplayer Game",
+  "description": "A silly secure real-time Mario-themed multiplayer game.",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",

@@ -1,12 +1,3 @@
-/*
-*       
-*       To run the tests on Repl.it, set `NODE_ENV` to `test` 
-*       without quotes in the `.env` file. 
-*       To run the tests in the console, open the terminal 
-*       with [Ctrl + `] (backtick) and run the command `npm run test`.
-*
-*/
-
 import Player from '../public/Player.mjs';
 import Collectible from '../public/Collectible.mjs';
 const chai = require('chai');
@@ -15,7 +6,6 @@ const { JSDOM } = require('jsdom');
 
 suite('Unit Tests', () => {
   suiteSetup(() => {
-    // Mock the DOM for testing and load Solver
     return JSDOM.fromFile('./views/index.html')
       .then((dom) => {
 
@@ -61,8 +51,6 @@ suite('Unit Tests', () => {
     });
 
     test("movePlayer(str, num) adjusts a player's position.", done => {
-      // Note: Only testing movement along the x axis in case
-      // the game is a 2D platformer
       const testPlayer = new Player({ x: 100, y: 100, score: 0, id: Date.now() });
       testPlayer.movePlayer('right', 5);
       const testPos1 = { x: testPlayer.x, y: testPlayer.y }
@@ -92,7 +80,6 @@ suite('Unit Tests', () => {
       testPlayer2.score = 3;
       const testArr = [ testPlayer1, testPlayer2 ];
 
-      // Account for possible space
       assert.match(testPlayer1.calculateRank(testArr), /Rank\: 1\s?\/\s?2/);
       assert.match(testPlayer2.calculateRank(testArr), /Rank\: 2\s?\/\s?2/);
       done();
